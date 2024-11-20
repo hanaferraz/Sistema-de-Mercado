@@ -38,9 +38,12 @@
             panelTitleBar = new Panel();
             lblTitle = new Label();
             panelDesktopPane = new Panel();
+            ImageInicio = new PictureBox();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             panelTitleBar.SuspendLayout();
+            panelDesktopPane.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ImageInicio).BeginInit();
             SuspendLayout();
             // 
             // panelMenu
@@ -66,6 +69,7 @@
             btnEstoque.ImageAlign = ContentAlignment.MiddleLeft;
             btnEstoque.Location = new Point(0, 220);
             btnEstoque.Name = "btnEstoque";
+            btnEstoque.Padding = new Padding(12, 0, 0, 0);
             btnEstoque.Size = new Size(220, 60);
             btnEstoque.TabIndex = 3;
             btnEstoque.Text = "  Estoque";
@@ -84,6 +88,7 @@
             btnCadFuncio.ImageAlign = ContentAlignment.MiddleLeft;
             btnCadFuncio.Location = new Point(0, 160);
             btnCadFuncio.Name = "btnCadFuncio";
+            btnCadFuncio.Padding = new Padding(12, 0, 0, 0);
             btnCadFuncio.Size = new Size(220, 60);
             btnCadFuncio.TabIndex = 2;
             btnCadFuncio.Text = "  Cadastrar Funcionario";
@@ -102,6 +107,7 @@
             btnProduto.ImageAlign = ContentAlignment.MiddleLeft;
             btnProduto.Location = new Point(0, 100);
             btnProduto.Name = "btnProduto";
+            btnProduto.Padding = new Padding(12, 0, 0, 0);
             btnProduto.Size = new Size(220, 60);
             btnProduto.TabIndex = 1;
             btnProduto.Text = "  Cadastrar Produto";
@@ -147,7 +153,7 @@
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Impact", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTitle.ForeColor = SystemColors.ControlLight;
-            lblTitle.Location = new Point(329, 31);
+            lblTitle.Location = new Point(250, 28);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(97, 43);
             lblTitle.TabIndex = 0;
@@ -155,11 +161,23 @@
             // 
             // panelDesktopPane
             // 
+            panelDesktopPane.Controls.Add(ImageInicio);
             panelDesktopPane.Dock = DockStyle.Fill;
             panelDesktopPane.Location = new Point(220, 100);
             panelDesktopPane.Name = "panelDesktopPane";
             panelDesktopPane.Size = new Size(728, 412);
             panelDesktopPane.TabIndex = 2;
+            // 
+            // ImageInicio
+            // 
+            ImageInicio.Anchor = AnchorStyles.None;
+            ImageInicio.Image = (Image)resources.GetObject("ImageInicio.Image");
+            ImageInicio.Location = new Point(174, 0);
+            ImageInicio.Name = "ImageInicio";
+            ImageInicio.Size = new Size(474, 412);
+            ImageInicio.SizeMode = PictureBoxSizeMode.StretchImage;
+            ImageInicio.TabIndex = 0;
+            ImageInicio.TabStop = false;
             // 
             // Form1
             // 
@@ -179,6 +197,8 @@
             panelLogo.PerformLayout();
             panelTitleBar.ResumeLayout(false);
             panelTitleBar.PerformLayout();
+            panelDesktopPane.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)ImageInicio).EndInit();
             ResumeLayout(false);
         }
 
@@ -193,5 +213,6 @@
         private Label lblTitle;
         private Label label1;
         private Panel panelDesktopPane;
+        private PictureBox ImageInicio;
     }
 }

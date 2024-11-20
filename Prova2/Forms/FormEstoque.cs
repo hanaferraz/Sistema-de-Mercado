@@ -21,23 +21,30 @@ namespace Prova2.Forms
         {
             try
             {
-                // Consulta SQL para buscar todos os produtos
-                string query = "SELECT Id, Nome, Quantidade, Preco, Ativo FROM Estoque WHERE Ativo = 1";
+                // Consulta SQL para buscar todos os produtos ativos
+                string query = "SELECT Id, Nome, Quantidade, Preco FROM Estoque WHERE Ativo = 1";
 
-                // Executando a consulta e obtendo os resultados
+                // Executa a consulta e retorna os resultados
                 DataTable dtProdutos = Conexao.ExecuteQuery(query);
 
-                // Limpando os dados antigos na grid
+                // Limpa a grid antes de recarregar
                 gridEstoque.Rows.Clear();
+                gridEstoque.Columns.Clear();
 
-                // Preenchendo a gridEstoque com os dados dos produtos
+                // Configura as colunas da grid (usando nomes internos específicos)
+                gridEstoque.Columns.Add("Id", "ID"); // Nome interno: "Id"
+                gridEstoque.Columns.Add("Nome", "Nome"); // Nome interno: "Nome"
+                gridEstoque.Columns.Add("Quantidade", "Quantidade"); // Nome interno: "Quantidade"
+                gridEstoque.Columns.Add("Preco", "Preço"); // Nome interno: "Preco"
+
+                // Preenche a grid com os dados do banco
                 foreach (DataRow row in dtProdutos.Rows)
                 {
                     gridEstoque.Rows.Add(
                         row["Id"].ToString(),
                         row["Nome"].ToString(),
-                        Convert.ToDecimal(row["Preco"]).ToString("C"),
-                        row["Quantidade"].ToString()
+                        row["Quantidade"].ToString(),
+                        Convert.ToDecimal(row["Preco"]).ToString("C")
                     );
                 }
             }
@@ -96,12 +103,69 @@ namespace Prova2.Forms
 
         private void btnAumentar_Click(object sender, EventArgs e)
         {
-
+            AlterarQuantidade(1); // Aumenta a quantidade em 1
         }
 
         private void btnDiminuir_Click(object sender, EventArgs e)
         {
+            AlterarQuantidade(-1); // Diminui a quantidade em 1
+        }
+        private void AlterarQuantidade(int incremento)
+        {
+            try
+            {
+                // Verifica se há uma linha selecionada na grid
+                if (gridEstoque.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Por favor, selecione um produto na grid antes de aumentar ou diminuir a quantidade.");
+                    return;
+                }
 
+                // Obtém a linha selecionada
+                DataGridViewRow row = gridEstoque.SelectedRows[0];
+
+                // Obtém o ID do produto
+                if (!int.TryParse(row.Cells["Id"].Value?.ToString(), out int produtoId))
+                {
+                    MessageBox.Show("Erro: o ID do produto não é válido.");
+                    return;
+                }
+
+                // Obtém a quantidade atual
+                if (!int.TryParse(row.Cells["QuantidadeEmEstoque"].Value?.ToString(), out int quantidadeAtual))
+                {
+                    MessageBox.Show("Erro: a quantidade atual não é válida.");
+                    return;
+                }
+
+                // Calcula a nova quantidade
+                int novaQuantidade = quantidadeAtual + incremento;
+
+                // Verifica se a nova quantidade é válida
+                if (novaQuantidade < 0)
+                {
+                    MessageBox.Show("A quantidade não pode ser negativa.");
+                    return;
+                }
+
+                // Atualiza no banco de dados
+                string query = "UPDATE Produtos SET QuantidadeEmEstoque = @QuantidadeEmEstoque WHERE Id = @Id";
+                SqlParameter[] parameters = {
+            new SqlParameter("@QuantidadeEmEstoque", SqlDbType.Int) { Value = novaQuantidade },
+            new SqlParameter("@Id", SqlDbType.Int) { Value = produtoId }
+        };
+
+                Conexao.ExecuteNonQuery(query, parameters);
+
+                // Atualiza a célula da grid
+                row.Cells["QuantidadeEmEstoque"].Value = novaQuantidade;
+
+                MessageBox.Show("Quantidade atualizada com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar a quantidade: " + ex.Message);
+            }
         }
 
         private void gridEstoque_CellContentClick(object sender, DataGridViewCellEventArgs e)

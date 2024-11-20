@@ -58,7 +58,7 @@
             txtProcurar.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtProcurar.Font = new Font("Segoe UI", 9F);
             txtProcurar.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtProcurar.Location = new Point(12, 68);
+            txtProcurar.Location = new Point(55, 76);
             txtProcurar.Name = "txtProcurar";
             txtProcurar.PasswordChar = '\0';
             txtProcurar.PlaceholderText = "";
@@ -72,7 +72,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Impact", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(29, 30);
+            label1.Location = new Point(60, 36);
             label1.Name = "label1";
             label1.Size = new Size(82, 26);
             label1.TabIndex = 1;
@@ -82,7 +82,7 @@
             // 
             gridEstoque.BackgroundColor = Color.FromArgb(203, 218, 213);
             gridEstoque.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gridEstoque.Location = new Point(12, 187);
+            gridEstoque.Location = new Point(55, 187);
             gridEstoque.Name = "gridEstoque";
             gridEstoque.Size = new Size(776, 236);
             gridEstoque.TabIndex = 2;
@@ -99,7 +99,7 @@
             btnAumentar.Font = new Font("Segoe UI", 9F);
             btnAumentar.ForeColor = Color.White;
             btnAumentar.Image = (Image)resources.GetObject("btnAumentar.Image");
-            btnAumentar.Location = new Point(116, 147);
+            btnAumentar.Location = new Point(157, 147);
             btnAumentar.Name = "btnAumentar";
             btnAumentar.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnAumentar.Size = new Size(87, 34);
@@ -119,7 +119,7 @@
             btnDiminuir.Font = new Font("Segoe UI", 9F);
             btnDiminuir.ForeColor = Color.White;
             btnDiminuir.Image = (Image)resources.GetObject("btnDiminuir.Image");
-            btnDiminuir.Location = new Point(224, 147);
+            btnDiminuir.Location = new Point(259, 147);
             btnDiminuir.Name = "btnDiminuir";
             btnDiminuir.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnDiminuir.Size = new Size(87, 34);
@@ -137,7 +137,7 @@
             btnBuscar.FillColor = Color.FromArgb(52, 52, 78);
             btnBuscar.Font = new Font("Segoe UI", 9F);
             btnBuscar.ForeColor = Color.White;
-            btnBuscar.Location = new Point(12, 147);
+            btnBuscar.Location = new Point(55, 147);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnBuscar.Size = new Size(87, 34);
@@ -157,7 +157,7 @@
             Controls.Add(label1);
             Controls.Add(txtProcurar);
             Name = "FormEstoque";
-            Text = "FormEstoque";
+            Text = "Estoque";
             ((System.ComponentModel.ISupportInitialize)gridEstoque).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -180,7 +180,7 @@
             Controls.Add(txtSalario);
             Controls.Add(txtNomeFunc);
             Name = "FormFuncionario";
-            Text = "FormFuncionario";
+            Text = "Cadastro de Funcionários";
             ((System.ComponentModel.ISupportInitialize)gridFuncionario).EndInit();
             ResumeLayout(false);
             PerformLayout();

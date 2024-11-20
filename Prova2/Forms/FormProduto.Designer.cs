@@ -150,6 +150,7 @@
             // btnSalvar
             // 
             btnSalvar.BackColor = Color.FromArgb(52, 52, 78);
+            btnSalvar.FlatStyle = FlatStyle.Flat;
             btnSalvar.ForeColor = SystemColors.ControlLight;
             btnSalvar.Location = new Point(106, 345);
             btnSalvar.Name = "btnSalvar";
@@ -175,7 +176,7 @@
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Name = "FormProduto";
-            Text = "FormProduto";
+            Text = "Cadastro de Produtos";
             ((System.ComponentModel.ISupportInitialize)gridProduto).EndInit();
             ResumeLayout(false);
             PerformLayout();

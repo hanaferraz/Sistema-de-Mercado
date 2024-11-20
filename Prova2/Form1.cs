@@ -16,6 +16,7 @@ namespace Prova2
         public Form1()
         {
             InitializeComponent();
+            this.Text = string.Empty;          
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -28,6 +29,7 @@ namespace Prova2
             {
                 activeForm.Close();
             }
+            ImageInicio.Visible = false;
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
