@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panelMenu = new Panel();
+            btnVendas = new Button();
             btnEstoque = new Button();
             btnCadFuncio = new Button();
             btnProduto = new Button();
@@ -49,6 +50,7 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.FromArgb(58, 65, 90);
+            panelMenu.Controls.Add(btnVendas);
             panelMenu.Controls.Add(btnEstoque);
             panelMenu.Controls.Add(btnCadFuncio);
             panelMenu.Controls.Add(btnProduto);
@@ -58,6 +60,25 @@
             panelMenu.Name = "panelMenu";
             panelMenu.Size = new Size(220, 512);
             panelMenu.TabIndex = 0;
+            // 
+            // btnVendas
+            // 
+            btnVendas.Dock = DockStyle.Top;
+            btnVendas.FlatAppearance.BorderSize = 0;
+            btnVendas.FlatStyle = FlatStyle.Flat;
+            btnVendas.ForeColor = SystemColors.ControlLight;
+            btnVendas.Image = (Image)resources.GetObject("btnVendas.Image");
+            btnVendas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnVendas.Location = new Point(0, 280);
+            btnVendas.Name = "btnVendas";
+            btnVendas.Padding = new Padding(12, 0, 0, 0);
+            btnVendas.Size = new Size(220, 60);
+            btnVendas.TabIndex = 4;
+            btnVendas.Text = "  Vendas";
+            btnVendas.TextAlign = ContentAlignment.MiddleLeft;
+            btnVendas.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnVendas.UseVisualStyleBackColor = true;
+            btnVendas.Click += btnVendas_Click;
             // 
             // btnEstoque
             // 
@@ -69,7 +90,7 @@
             btnEstoque.ImageAlign = ContentAlignment.MiddleLeft;
             btnEstoque.Location = new Point(0, 220);
             btnEstoque.Name = "btnEstoque";
-            btnEstoque.Padding = new Padding(12, 0, 0, 0);
+            btnEstoque.Padding = new Padding(14, 0, 0, 0);
             btnEstoque.Size = new Size(220, 60);
             btnEstoque.TabIndex = 3;
             btnEstoque.Text = "  Estoque";
@@ -214,5 +235,6 @@
         private Label label1;
         private Panel panelDesktopPane;
         private PictureBox ImageInicio;
+        private Button btnVendas;
     }
 }

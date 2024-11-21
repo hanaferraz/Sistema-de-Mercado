@@ -137,6 +137,7 @@
             btnBuscar.FillColor = Color.FromArgb(52, 52, 78);
             btnBuscar.Font = new Font("Segoe UI", 9F);
             btnBuscar.ForeColor = Color.White;
+            btnBuscar.Image = (Image)resources.GetObject("btnBuscar.Image");
             btnBuscar.Location = new Point(55, 147);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.ShadowDecoration.CustomizableEdges = customizableEdges8;

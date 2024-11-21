@@ -16,7 +16,7 @@ namespace Prova2
         public Form1()
         {
             InitializeComponent();
-            this.Text = string.Empty;          
+            this.Text = string.Empty;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -54,6 +54,11 @@ namespace Prova2
         private void btnEstoque_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.FormEstoque(), sender);
+        }
+
+        private void btnVendas_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Forms.FormVendas(), sender);
         }
     }
 }
